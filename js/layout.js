@@ -80,7 +80,7 @@ function InitActiveMenuBorder(element)
 function LoadContent(content, animate, toRight, hash)
 {
     // set hash fragment at top of URL (for bookmarks)
-    if(content == '') content = 'about';
+    if(content == '') content = 'personal_projects';
 
     if(hash)
     {
