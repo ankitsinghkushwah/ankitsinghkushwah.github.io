@@ -25,7 +25,7 @@ $(document).ready(function() {
     });
     
     
-    InitActiveMenuBorder($('#menu-about'));   
+    InitActiveMenuBorder($('#menu-personal_projects'));   
     
     // set original content pos (for restoring after fade-in/fade-out)
     ContentPos = $('#content').offset();    
