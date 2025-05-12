@@ -25,7 +25,7 @@ $(document).ready(function() {
     });
     
     
-    InitActiveMenuBorder($('#menu-personal_projects'));   
+    InitActiveMenuBorder($('#menu-about'));   
     
     // set original content pos (for restoring after fade-in/fade-out)
     ContentPos = $('#content').offset();    
@@ -80,7 +80,7 @@ function InitActiveMenuBorder(element)
 function LoadContent(content, animate, toRight, hash)
 {
     // set hash fragment at top of URL (for bookmarks)
-    if(content == '') content = 'personal_projects';
+    if(content == '') content = 'about';
 
     if(hash)
     {
