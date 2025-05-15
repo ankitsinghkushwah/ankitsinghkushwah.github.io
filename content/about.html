@@ -1,7 +1,14 @@
 <!-- content/home.html -->
 <div class="home-section">
 
-    <div class="about-me">
+  <div class="about-me" style="display: flex; align-items: flex-start; gap: 20px;">
+
+    <!-- Profile Picture -->
+    <img src="images/profile_pic.jpeg" alt="Profile Picture" 
+         style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; flex-shrink: 0;">
+
+    <!-- About Me Text -->
+    <div>
         <h3>Welcome to my Website</h3>
         <p> About me, I’m a passionate game programmer who loves exploring all aspects of game development like AI, physics, animation, graphics,
             networking, and of course, gameplay. You will see that in my personal projects & the shipped games I am grateful to be part of.
@@ -12,31 +19,45 @@
         </p>
     </div>
 
-    <div class="featured">
-      <h3>Articles</h3>
-      <h2><a href="https://learnopengl.com/Guest-Articles/2020/Skeletal-Animation" target="_blank">Skeletal Animation
-              with OpenGL</a></h2>
-      <p>
-          In this article for LearnOpenGL.com, I break down skeletal animation—covering how 3D models 
-          are rigged with bones and how code brings them to life through matrix transformations and interpolation.
-      </p>
-
-  </div>
-
-  <div class="features">
-    <h3>My Books Recommendation</h3>
-    <ul>
-      <li>Game Coding Complete 4th Edition </li>
-      <li>Game Engine Physics Development</li>
-        <li>Programming game AI by Example</li>
-      <li>3D Maths Primer for Graphics & Game Development</li>
-      <li>Game Programming Patterns</li>
-      <li>C++ Concurrency in Action</li>
-      <li>DOOM GUY : I have a signed copy by John Romero</li>
-      <li>Masters of DOOM</li>
-    </ul>
-
 </div>
+
+<div class="featured" style="margin-top: 20px;">
+  <h3>Articles</h3>
+  <h2>
+    <a href="https://learnopengl.com/Guest-Articles/2020/Skeletal-Animation" target="_blank">
+      Skeletal Animation with OpenGL
+    </a>
+  </h2>
+  <p>
+    In this article for LearnOpenGL.com, I break down skeletal animation—covering how 3D models 
+    are rigged with bones and how code brings them to life through matrix transformations and interpolation.
+  </p>
+</div>
+
+
+  <div class="features" style="display: flex; align-items: flex-start; gap: 40px;">
+
+    <!-- Text content -->
+    <div>
+      <h3>My Books Recommendation</h3>
+      <ul style="margin: 0; padding: 0; list-style-position: inside;">
+        <li style="margin-bottom: 2px;">Game Coding Complete 4th Edition</li>
+        <li style="margin-bottom: 2px;">Game Engine Physics Development</li>
+        <li style="margin-bottom: 2px;">Programming game AI by Example</li>
+        <li style="margin-bottom: 2px;">3D Maths Primer for Graphics & Game Development</li>
+        <li style="margin-bottom: 2px;">Game Programming Patterns</li>
+        <li style="margin-bottom: 2px;">C++ Concurrency in Action</li>
+        <li style="margin-bottom: 2px;">DOOM GUY : I have a signed copy by John Romero</li>
+        <li>Masters of DOOM</li> <!-- no margin needed on last one -->
+      </ul>
+    </div>
+  
+    <!-- Image aligned with header, now on the right -->
+    <img src="images/doom_guy.jpg" alt="DOOM Guy Book"
+         style="height: 200px; object-fit: contain; border-radius: 8px;">
+  
+  </div>
+  
 
 
     <div class="featured">
