@@ -13,6 +13,9 @@ $(document).ready(function() {
     $('#menu-shipped_games').click(function() {
         MenuClick(this);
     });
+    $('#menu-game_jam_projects').click(function() {
+        MenuClick(this);
+    });
     $('#menu-resume').click(function() {
         MenuClick(this);
     });
