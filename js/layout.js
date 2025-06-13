@@ -28,7 +28,7 @@ $(document).ready(function() {
     });
     
     
-    InitActiveMenuBorder($('#menu-about'));   
+    InitActiveMenuBorder($('#menu-personal_projects'));   
     
     // set original content pos (for restoring after fade-in/fade-out)
     ContentPos = $('#content').offset();    
@@ -193,3 +193,51 @@ function MenuClick(sender, force)
         });
     });
 };
+
+//support for touch
+
+(function() {
+    let touchStartX = null;
+    const swipeThreshold = 60;
+
+    // Attach to a scroll-safe, visible area (not whole document)
+    const swipeTarget = document.getElementById('content') || document.body;
+
+    swipeTarget.addEventListener('touchstart', function(e) {
+        if (e.touches.length === 1) {
+            touchStartX = e.touches[0].clientX;
+        }
+    }, { passive: true });
+
+    swipeTarget.addEventListener('touchend', function(e) {
+        if (touchStartX === null) return;
+
+        const touchEndX = e.changedTouches[0].clientX;
+        const dx = touchEndX - touchStartX;
+        touchStartX = null;
+
+        if (Math.abs(dx) < swipeThreshold) return;
+
+        const direction = dx < 0 ? 1 : -1;  // swipe left = +1
+        handleSwipe(direction);
+    }, { passive: true });
+
+    function handleSwipe(direction) {
+        const items = Array.from(document.querySelectorAll('#menu > div'));
+        const current = document.querySelector('#menu .active');
+
+        if (!current) return;
+
+        const currentIndex = parseInt(current.getAttribute('index'));
+        const nextIndex = currentIndex + direction;
+
+        if (nextIndex < 0 || nextIndex >= items.length) return;
+
+        const nextItem = items[nextIndex];
+        if (typeof MenuClick === 'function') {
+            MenuClick(nextItem, true);
+        } else if (typeof window.MenuClick === 'function') {
+            window.MenuClick(nextItem, true);
+        }
+    }
+})();
