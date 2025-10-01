@@ -42,27 +42,37 @@ $(document).ready(function() {
         var hash = window.location.hash;     
         OnHashChange(hash); 
     };
-
-        $(document).on('click', '.demo-thumbnails .thumb', function() {
-    var videoId = $(this).attr('data-video-id');
-    $('#main-demo-iframe').attr(
-      'src',
-      'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0'
-    );
-
-    var iframe = $('#main-demo-iframe');
-
-    // Set the iframe source to the selected video
-    iframe.attr('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0');
-
-    iframe.height(480);
-
-    $('.demo-thumbnails .thumb').removeClass('selected');
-    $(this).addClass('selected');
-    
-  });
     
 });
+
+// Add this new function
+function InitializeYouTubePlayer() {
+    // Only initialize if we're on the personal_projects page and thumbnails exist
+    if ($('.demo-thumbnails .thumb').length > 0) {
+        var firstThumb = $('.demo-thumbnails .thumb').first();
+        var firstVideoId = firstThumb.attr('data-video-id');
+        
+        if (firstVideoId) {
+            $('#main-demo-iframe').attr(
+                'src', 
+                'https://www.youtube.com/embed/' + firstVideoId + '?rel=0'
+            );
+            firstThumb.addClass('selected');
+        }
+        
+        // Thumbnail click handler - use event delegation since elements exist now
+        $('.demo-thumbnails').on('click', '.thumb', function() {
+            var videoId = $(this).attr('data-video-id');
+            var iframe = $('#main-demo-iframe');
+            
+            iframe.attr('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0');
+            iframe.height(480);
+            
+            $('.demo-thumbnails .thumb').removeClass('selected');
+            $(this).addClass('selected');
+        });
+    }
+}
 
 
 // make sure the active menu border aligns properly after resizing the browser
@@ -155,6 +165,7 @@ function LoadContent(content, animate, toRight, hash)
                     }, { duration: 300, queue: false, complete: function() {
                         $('#content').css('position', 'relative');
                         $('#content').offset(ContentPos);
+                        InitializeYouTubePlayer(); 
                     }});
                 });        
             }});
@@ -166,6 +177,7 @@ function LoadContent(content, animate, toRight, hash)
     {
         $.get('content/' + content_file, function(data) {
             $('#content').html(data); 
+            InitializeYouTubePlayer(); 
         });
     }
 }

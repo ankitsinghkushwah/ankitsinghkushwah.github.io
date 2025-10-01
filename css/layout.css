@@ -361,7 +361,7 @@ img.img_resume {
 
 .demo-thumbnails .thumb img {
   display: block;
-  width: 160px;  
+  width: 140px;  
   height: auto;
   border: 2px solid transparent;
 }
@@ -370,6 +370,7 @@ img.img_resume {
   border-color: #007acc;  
   border-width: 4px;
 }
+
 
 
 
