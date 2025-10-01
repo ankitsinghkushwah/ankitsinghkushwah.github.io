@@ -11,11 +11,41 @@
     </p>
 
     <h2>Demos</h2>
-    <p> Its a playlist, keep pressing next to watch different demos! Thanks. </p>
-    <iframe width="640" height="360"
-      src="https://www.youtube.com/embed/videoseries?list=PL1JdHV6uMaCk09dY2k1XG6ldCvB5qpKnR&si=nulJM5oFOASuplLY"
-      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-    </iframe>
+    <p> <strong> Click on thumbnails below to play the video.</strong> </p>
+   <div class="demo-player">
+  <iframe
+    id="main-demo-iframe"
+    width="640" height="0"
+    src=""
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<div class="demo-thumbnails">
+  <div class="thumb" data-video-id="z52WxTNrIpg">
+    <img src="https://img.youtube.com/vi/z52WxTNrIpg/hqdefault.jpg" alt="Demo 1">
+  </div>
+  <div class="thumb" data-video-id="PexURRg1Oeo">
+    <img src="https://img.youtube.com/vi/PexURRg1Oeo/hqdefault.jpg" alt="Demo 2">
+  </div>
+  <div class="thumb" data-video-id="zf3t1Q_VZGM">
+    <img src="https://img.youtube.com/vi/zf3t1Q_VZGM/hqdefault.jpg" alt="Demo 3">
+  </div>
+  <div class="thumb" data-video-id="PS2QF7pm8Ng">
+    <img src="https://img.youtube.com/vi/PS2QF7pm8Ng/hqdefault.jpg" alt="Demo 4">
+  </div>
+  <div class="thumb" data-video-id="abnopf9OntY">
+    <img src="https://img.youtube.com/vi/abnopf9OntY/hqdefault.jpg" alt="Demo 5">
+  </div>
+  <div class="thumb" data-video-id="RszWEUHOxoE">
+    <img src="https://img.youtube.com/vi/RszWEUHOxoE/hqdefault.jpg" alt="Demo 6">
+  </div>
+  <div class="thumb" data-video-id="H0ntyFogFvU">
+    <img src="https://img.youtube.com/vi/H0ntyFogFvU/hqdefault.jpg" alt="Demo 7">
+  </div>
+</div>
 
 
     <div class="responsibilities">
@@ -76,24 +106,25 @@
 
   <hr style="margin: 2rem 0; border: none; border-top: 3px solid #ccc;">
 
-  <div class="project">
-        <h3>A star with javascript</h3>
-        <p> 
-          I wrote Dijsktra once. But always wanted to write A star as well. Decided to do that on random day.</p>
-        
-        <p>You can find the demo below. Press left mouse click on any white block to set the goal and use W,S,A,D to pick start cell.
-         Press F to find the shortest path and Enter to reset the map. Black blocks are "no go zones".</p>
-    
-        <p>You can run the demo here and see the implementation in javascript: 
-            <a href="https://openprocessing.org/sketch/1724959" target="_blank" rel="noopener noreferrer">
-                ▶ A star by Ankit S. Kushwah
-            </a>
-        </p>
+<div class="project">
+  <h3>A* Pathfinding in JavaScript</h3>
 
-        <div class="project-images" style="display: flex; gap: 1rem; margin: 1rem 0;">
-            <img src="images/personal_projects/a_star.png" alt="Screenshot 1" style="width: 60%; height: auto;">
-        </div>
-    </div>
+  <p>
+    Click any white cell to set the goal. Use <strong>W, S, A, D</strong> to choose the start cell.
+    Press <strong>F</strong> to find the shortest path. Press <strong>Enter</strong> to reset. Black cells are “no-go zones.”
+  </p>
+
+  <p>
+    Try the demo and view the JavaScript implementation:  
+    <a href="https://openprocessing.org/sketch/1724959" target="_blank" rel="noopener noreferrer">
+      ▶ A* by Ankit S. Kushwah
+    </a>
+  </p>
+
+  <div class="project-images" style="display: flex; gap: 1rem; margin: 1rem 0;">
+    <img src="images/personal_projects/a_star.png" alt="A* pathfinding screenshot" style="width: 60%; height: auto;">
+  </div>
+</div>
 
 
   <hr style="margin: 2rem 0; border: none; border-top: 3px solid #ccc;">

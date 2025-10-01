@@ -2,7 +2,8 @@
 var ContentPos;
 
 // document load
-$(document).ready(function() {                
+$(document).ready(function() {       
+
     // init controls
     $('#menu-about').click(function() {
         MenuClick(this);
@@ -41,6 +42,25 @@ $(document).ready(function() {
         var hash = window.location.hash;     
         OnHashChange(hash); 
     };
+
+        $(document).on('click', '.demo-thumbnails .thumb', function() {
+    var videoId = $(this).attr('data-video-id');
+    $('#main-demo-iframe').attr(
+      'src',
+      'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0'
+    );
+
+    var iframe = $('#main-demo-iframe');
+
+    // Set the iframe source to the selected video
+    iframe.attr('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0');
+
+    iframe.height(480);
+
+    $('.demo-thumbnails .thumb').removeClass('selected');
+    $(this).addClass('selected');
+    
+  });
     
 });
 
@@ -127,7 +147,7 @@ function LoadContent(content, animate, toRight, hash)
                         precontent = "<div class=\"portfolio_back\" onclick=\"LoadContent('portfolio', true, true, true)\"></div>" 
                     }
                     $('#content').html(precontent + data);                 
-                    $('#content').css('left', currentLeft - offset);      
+                    $('#content').css('left', currentLeft - offset);     
                     window.scrollTo(0, 0);                
                     $('#content').animate({
                         opacity: 1,
@@ -139,6 +159,8 @@ function LoadContent(content, animate, toRight, hash)
                 });        
             }});
         }
+
+       
     }
     else
     {
@@ -193,51 +215,3 @@ function MenuClick(sender, force)
         });
     });
 };
-
-//support for touch
-
-(function() {
-    let touchStartX = null;
-    const swipeThreshold = 60;
-
-    // Attach to a scroll-safe, visible area (not whole document)
-    const swipeTarget = document.getElementById('content') || document.body;
-
-    swipeTarget.addEventListener('touchstart', function(e) {
-        if (e.touches.length === 1) {
-            touchStartX = e.touches[0].clientX;
-        }
-    }, { passive: true });
-
-    swipeTarget.addEventListener('touchend', function(e) {
-        if (touchStartX === null) return;
-
-        const touchEndX = e.changedTouches[0].clientX;
-        const dx = touchEndX - touchStartX;
-        touchStartX = null;
-
-        if (Math.abs(dx) < swipeThreshold) return;
-
-        const direction = dx < 0 ? 1 : -1;  // swipe left = +1
-        handleSwipe(direction);
-    }, { passive: true });
-
-    function handleSwipe(direction) {
-        const items = Array.from(document.querySelectorAll('#menu > div'));
-        const current = document.querySelector('#menu .active');
-
-        if (!current) return;
-
-        const currentIndex = parseInt(current.getAttribute('index'));
-        const nextIndex = currentIndex + direction;
-
-        if (nextIndex < 0 || nextIndex >= items.length) return;
-
-        const nextItem = items[nextIndex];
-        if (typeof MenuClick === 'function') {
-            MenuClick(nextItem, true);
-        } else if (typeof window.MenuClick === 'function') {
-            window.MenuClick(nextItem, true);
-        }
-    }
-})();
