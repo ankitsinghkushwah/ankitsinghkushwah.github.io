@@ -371,6 +371,57 @@ img.img_resume {
   border-width: 4px;
 }
 
+.video-container {
+    width: 640px;
+    height: 360px;
+    
+    /* Removed 'auto' from margins to prevent centering. */
+    /* This sets 20px margin on top/bottom, and 0 on left/right. */
+    margin: 20px 0; 
+}
+
+/* The rest of the CSS remains the same: */
+
+.video-link {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Rectangular rounded styling */
+    background-color: rgba(255, 0, 0, 0.8);
+    color: white;
+    font-size: 30px;
+    padding: 15px 25px 15px 30px; 
+    border-radius: 12px; 
+    
+    transition: background-color 0.3s ease;
+    
+    line-height: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-link:hover .play-button {
+    background-color: rgba(255, 0, 0, 1);
+}
 
 
 
